@@ -14,7 +14,7 @@ The primary interface for the person with dementia, designed for simplicity and 
 - **Cognitive Games:** A simple memory matching game to provide gentle mental stimulation.
 - **Memory Album:** A visual album of photos and captions shared by family members.
 - **Voice Messages:** A simple way to send and receive voice notes from family and caregivers.
-- **Emergency SOS:** A large, prominent button to alert caregivers and family in case of an emergency.
+- **Emergency SOS:** A large, prominent slider to alert caregivers and family in case of an emergency, designed to prevent accidental presses.
 - **Fall Detection:** Automatically detects potential falls using the phone's accelerometer and sends an alert.
 
 ### ดูแล Caregiver View
@@ -41,6 +41,9 @@ A portal for family members to stay connected and involved in their loved one's 
     - `DeviceOrientationEvent` (Compass/Motion Sensors)
     - `SpeechRecognition` (Voice Input)
     - `MediaRecorder` (Audio Recording)
+
+### Performance & Data Handling Notes
+- **Audio:** To ensure performance and avoid bloating memory, audio data is handled using `Blob` objects and `URL.createObjectURL()`. **Base64 encoding is not used for audio data** as it is inefficient. This approach is used for both recording and playback of voice messages.
 
 ## 🚀 Getting Started
 
